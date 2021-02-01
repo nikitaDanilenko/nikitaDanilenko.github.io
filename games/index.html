@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="d3.min.js?v=3.2.8"></script>
+    </head>
+    <body>
+        <script type="text/javascript" charset="utf-8">
+            const identity = function(a) { return a }
+            const mkTable = function(data) {
+                const parsedCSV = d3.csv.parseRows(data)
+
+                const table = d3.select("body").append("table")
+                const header = parsedCSV[0]
+                const values = parsedCSV.slice(1)
+
+                const headers = table
+                  .append("thead")
+                  .append("tr")
+                  .selectAll("th")
+                  .data(header)
+                  .enter()
+                  .append("th")
+                  .text(identity)
+                  .on("click", function(pos) {
+                    const index = header.findIndex(function(x) {return x == pos})
+                    if (d3.event.shiftKey) {
+                        rows.sort(function(a, b) {
+                            return d3.ascending(b[index], a[index])
+                        })
+                    } else {
+                        rows.sort(function(a, b) {
+                            return d3.descending(a[index], b[index]); 
+                        }
+                    )}
+                  })
+
+                const rows = 
+                    table
+                      .append("tbody")
+                      .selectAll("tr")
+                      .data(values)
+                      .enter()
+                      .append("tr")
+                rows
+                  .selectAll("td")
+                  .data(identity)
+                  .enter()
+                  .append("td")
+                  .text(identity)
+            }
+
+            d3.text("./games.csv", mkTable)
+        </script>
+    </body>
+</html>

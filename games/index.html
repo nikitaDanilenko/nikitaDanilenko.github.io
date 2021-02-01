@@ -30,7 +30,7 @@
                         })
                     } else {
                         rows.sort(function(a, b) {
-                            return d3.descending(a[index], b[index]); 
+                            return d3.descending(b[index], a[index]); 
                         }
                     )}
                   })
@@ -50,7 +50,7 @@
                   .text(identity)
             }
 
-            d3.text("./games.csv", mkTable)
+            d3.text("games.csv", mkTable)
         </script>
     </body>
 </html>

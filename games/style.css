@@ -1,0 +1,19 @@
+td, th {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: rgb(80, 80, 80);
+}
+
+tr:hover {
+  background-color: rgb(100, 100, 100);
+  color: rgb(180, 180, 180);
+}
+
+body {
+  color: rgb(200, 200, 200);
+  background: rgb(40, 40, 40);
+  font-family: arial;
+}

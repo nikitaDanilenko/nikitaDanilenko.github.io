@@ -7,7 +7,7 @@ tr:nth-child(even) {
   background-color: rgb(80, 80, 80);
 }
 
-tr:hover {
+tbody tr:hover {
   background-color: rgb(100, 100, 100);
   color: rgb(180, 180, 180);
 }
@@ -16,4 +16,21 @@ body {
   color: rgb(200, 200, 200);
   background: rgb(40, 40, 40);
   font-family: arial;
+}
+
+table tbody {
+    counter-reset: sortabletablescope;
+}
+
+table thead tr::before {
+    content: "";
+    display: table-cell;
+}
+
+table tbody tr::before {
+    content: counter(sortabletablescope);
+    counter-increment: sortabletablescope;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
 }

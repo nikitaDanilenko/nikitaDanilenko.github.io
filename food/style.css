@@ -1,0 +1,32 @@
+
+
+body {
+  color: rgb(200, 200, 200);
+  background: rgb(40, 40, 40);
+  font-family: arial;
+}
+
+button {
+  background-color: rgb(66, 100, 160);
+  color: white;
+
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+
+  border-radius: 5px;
+  border: none;
+
+  text-decoration: none;
+  font-size: xx-large;
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+button:hover {
+  background-color: rgb(100, 149, 237);
+}

@@ -1,32 +1,77 @@
-
-
 body {
-  color: rgb(200, 200, 200);
-  background: rgb(40, 40, 40);
-  font-family: arial;
+    color: rgb(200, 200, 200);
+    background: rgb(40, 40, 40);
+    font-family: arial, sans-serif;
 }
 
 button {
-  background-color: rgb(66, 100, 160);
-  color: white;
+    background-color: rgb(66, 100, 160);
+    color: white;
 
-  padding-top: 5%;
-  padding-bottom: 5%;
-  padding-left: 5%;
-  padding-right: 5%;
+    padding: 5%;
 
-  border-radius: 5px;
-  border: none;
+    border-radius: 5px;
+    border: none;
 
-  text-decoration: none;
-  font-size: xx-large;
-  text-align: center;
-  display: inline-block;
-  width: 100%;
-  white-space: normal;
-  word-wrap: break-word;
+    text-decoration: none;
+    font-size: xx-large;
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 button:hover {
-  background-color: rgb(100, 149, 237);
+    background-color: rgb(100, 149, 237);
+}
+
+td, th {
+    text-align: left;
+    padding: 8px;
+}
+
+table {
+    border-spacing: 0;
+}
+
+tbody tr:hover {
+    background-color: rgb(100, 100, 100);
+    color: rgb(180, 180, 180);
+}
+
+table tbody {
+    counter-reset: sortabletablescope;
+}
+
+table thead tr::before {
+    content: "";
+    display: table-cell;
+}
+
+table tbody tr::before {
+    content: counter(sortabletablescope);
+    counter-increment: sortabletablescope;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table, #outer {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#outer {
+    text-align: center;
+}
+
+#inner {
+    display: inline-block;
+    text-align: left;
+}
+
+#condition {
+    text-align: center;
+    font-style: italic;
 }

@@ -9,6 +9,10 @@ body {
     text-align: center;
 }
 
+.sticky {
+    position: fixed;
+}
+
 button {
     background-color: rgb(66, 100, 160);
     color: white;

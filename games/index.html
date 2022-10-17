@@ -1,73 +1,35 @@
 <!DOCTYPE html>
-<html lang = "en">
-    <head>
-        <script src="https://d3js.org/d3.v3.min.js"></script>
-        <script src="d3.min.js?v=3.2.8"></script>
-        <link rel="stylesheet" href="style.css">
-        <title>Games to give away</title>
-    </head>
-    <body>
-        <div id="outer">
-          <div id="inner">
-            <p>
-              Since I am somewhat of an obsessive HumbleBundle user, I have accrued a lot of games I do not actually want to play. If you are interested in any of these games, please let me know and I will (consider to) give it to you. There is no guarantee that games listed here are actually still available, however, I try my best to keep this list updated.
-            </p>
+<html lang="en">
+<head>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="d3.min.js?v=3.2.8"></script>
+    <link rel="stylesheet" href="../style.css">
+    <title>Games to give away</title>
+</head>
+<body>
+<div class="nav" id="navigationHeader">
+    <form action="..">
+        <button class="navigation">Back</button>
+    </form>
+</div>
+<div id="outer">
+    <div id="inner">
+        <p>
+            Since I am somewhat of an obsessive HumbleBundle user, I have accrued a lot of games I do not actually want
+            to play. If you are interested in any of these games, please let me know and I will (consider to) give it to
+            you. There is no guarantee that games listed here are actually still available, however, I try my best to
+            keep this list updated.
+        </p>
 
-            <p id="condition">
-              The only condition I have for giving these games away is that I want you to play them and not hoard them like I did.
-            </p>
-          </div>
-        </div>
+        <p id="condition">
+            The only condition I have for giving these games away is that I want you to play them and not hoard them
+            like I did.
+        </p>
+    </div>
+</div>
 
-        <script type="text/javascript" charset="utf-8">
-            const identity = function(a) { return a }
-            const mkTable = function(data) {
-                const parsedCSV = d3.csv.parseRows(data)
+<script src="../js/auto-table.js">
+</script>
 
-                const table = d3.select("body").append("table")
-                const header = parsedCSV[0]
-                const values = parsedCSV.slice(1)
-
-                const headers = table
-                  .append("thead")
-                  .append("tr")
-                  .selectAll("th")
-                  .data(header)
-                  .enter()
-                  .append("th")
-                  .text(identity)
-                  .on("click", function(pos) {
-                    const index = header.findIndex(function(x) {return x == pos})
-                    if (d3.event.shiftKey) {
-                        rows.sort(function(a, b) {
-                            return d3.ascending(b[index], a[index])
-                        })
-                    } else {
-                        rows.sort(function(a, b) {
-                            return d3.descending(b[index], a[index]); 
-                        }
-                    )}
-                  })
-
-                const rows = 
-                    table
-                      .append("tbody")
-                      .selectAll("tr")
-                      .data(values)
-                      .enter()
-                      .append("tr")
-                      .sort(function(a, b) {
-                        return d3.descending(b[0], a[0])
-                      })
-                rows
-                  .selectAll("td")
-                  .data(identity)
-                  .enter()
-                  .append("td")
-                  .text(identity)
-            }
-
-            d3.text("games.csv", mkTable)
-        </script>
-    </body>
+</body>
 </html>

@@ -4,22 +4,26 @@ body {
     font-family: arial, sans-serif;
 }
 
+.nav {
+    width: 100%;
+    text-align: center;
+}
+
 button {
     background-color: rgb(66, 100, 160);
     color: white;
-
-    padding: 5%;
-
     border-radius: 5px;
     border: none;
-
     text-decoration: none;
     font-size: xx-large;
     text-align: center;
     display: inline-block;
-    width: 100%;
+    width: 50%;
     white-space: normal;
     word-wrap: break-word;
+    margin-bottom: 5px;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 button:hover {
@@ -74,4 +78,15 @@ table, #outer {
 #condition {
     text-align: center;
     font-style: italic;
+}
+
+.navigation {
+    padding: 1%;
+    background-color: green;
+    alignment: center;
+    display: inline-block;
+}
+
+.navigation:hover {
+    background-color: limegreen;
 }

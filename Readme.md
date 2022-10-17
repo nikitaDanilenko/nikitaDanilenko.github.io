@@ -1,0 +1,1 @@
+Repository for the [GitHub Pages instance](https://nikitadanilenko.github.io).

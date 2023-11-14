@@ -9,6 +9,10 @@ body {
     text-align: center;
 }
 
+#overview menu {
+    list-style-type: none;
+}
+
 .sticky {
     position: fixed;
 }

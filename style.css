@@ -9,6 +9,10 @@ body {
     text-align: center;
 }
 
+.nav {
+    list-style-type: none;
+}
+
 .sticky {
     position: fixed;
 }
@@ -84,13 +88,16 @@ table, #outer {
     font-style: italic;
 }
 
-.navigation {
+.navigation-button {
     padding: 1%;
     background-color: green;
-    alignment: center;
     display: inline-block;
 }
 
-.navigation:hover {
+.navigation-button:hover {
     background-color: limegreen;
+}
+
+nav {
+    text-align: center;
 }

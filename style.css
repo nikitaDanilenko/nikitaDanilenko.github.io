@@ -9,7 +9,7 @@ body {
     text-align: center;
 }
 
-#overview menu {
+.nav {
     list-style-type: none;
 }
 
@@ -88,13 +88,16 @@ table, #outer {
     font-style: italic;
 }
 
-.navigation {
+.navigation-button {
     padding: 1%;
     background-color: green;
-    alignment: center;
     display: inline-block;
 }
 
-.navigation:hover {
+.navigation-button:hover {
     background-color: limegreen;
+}
+
+nav {
+    text-align: center;
 }

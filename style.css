@@ -17,7 +17,7 @@ body {
     position: fixed;
 }
 
-button {
+button, .button {
     background-color: rgb(66, 100, 160);
     color: white;
     border-radius: 5px;
@@ -32,9 +32,11 @@ button {
     margin-bottom: 5px;
     padding-top: 2%;
     padding-bottom: 2%;
+    box-sizing: border-box;
+    cursor: pointer;
 }
 
-button:hover {
+button:hover, .button:hover {
     background-color: rgb(100, 149, 237);
 }
 
@@ -92,6 +94,9 @@ table, #outer {
     padding: 1%;
     background-color: green;
     display: inline-block;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
 }
 
 .navigation-button:hover {

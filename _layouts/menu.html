@@ -5,9 +5,7 @@ layout: default
     <menu class="nav">
 {% for item in page.items %}
         <li>
-            <form action="{{ item.href }}" method="get">
-                <button type="submit">{{ item.label }}</button>
-            </form>
+            <a class="button" href="{{ item.href }}">{{ item.label }}</a>
         </li>
 {% endfor %}
         <li>

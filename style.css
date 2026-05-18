@@ -1,7 +1,20 @@
+:root {
+    --bg: rgb(40, 40, 40);
+    --fg: rgb(200, 200, 200);
+    --accent: rgb(66, 100, 160);
+    --accent-hover: rgb(100, 149, 237);
+    --link-hover: rgb(150, 190, 255);
+    --row-hover-bg: rgb(100, 100, 100);
+    --row-hover-fg: rgb(180, 180, 180);
+    --back: green;
+    --back-hover: limegreen;
+    --button-fg: white;
+}
+
 body {
-    color: rgb(200, 200, 200);
-    background: rgb(40, 40, 40);
-    font-family: arial, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    font-family: system-ui, arial, sans-serif;
 }
 
 .nav {
@@ -12,13 +25,9 @@ body {
     margin: 0;
 }
 
-.sticky {
-    position: fixed;
-}
-
 button, .button {
-    background-color: rgb(66, 100, 160);
-    color: white;
+    background-color: var(--accent);
+    color: var(--button-fg);
     border-radius: 5px;
     border: none;
     text-decoration: none;
@@ -27,7 +36,7 @@ button, .button {
     display: inline-block;
     width: 50%;
     white-space: normal;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
     margin-bottom: 5px;
     padding-top: 2%;
     padding-bottom: 2%;
@@ -36,7 +45,7 @@ button, .button {
 }
 
 button:hover, .button:hover {
-    background-color: rgb(100, 149, 237);
+    background-color: var(--accent-hover);
 }
 
 td, th {
@@ -45,12 +54,12 @@ td, th {
 }
 
 td a {
-    color: rgb(100, 149, 237);
+    color: var(--accent-hover);
     text-decoration: none;
 }
 
 td a:hover {
-    color: rgb(150, 190, 255);
+    color: var(--link-hover);
     text-decoration: underline;
 }
 
@@ -59,8 +68,8 @@ table {
 }
 
 tbody tr:hover {
-    background-color: rgb(100, 100, 100);
-    color: rgb(180, 180, 180);
+    background-color: var(--row-hover-bg);
+    color: var(--row-hover-fg);
 }
 
 table tbody {
@@ -101,15 +110,11 @@ table, #outer {
 
 .navigation-button {
     padding: 1%;
-    background-color: green;
-    display: inline-block;
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
+    background-color: var(--back);
 }
 
 .navigation-button:hover {
-    background-color: limegreen;
+    background-color: var(--back-hover);
 }
 
 nav {

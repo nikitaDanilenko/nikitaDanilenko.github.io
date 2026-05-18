@@ -1,48 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Food Lists</title>
-    <link rel="stylesheet" href="../style.css">
-</head>
-<body>
-<main>
-    <menu class="nav">
-        <li>
-            <form action="./regular/index.html">
-                <button type="submit">Regular</button>
-            </form>
-        </li>
-        <li>
-            <form action="./salads/index.html">
-                <button type="submit">Salads</button>
-            </form>
-        </li>
-        <li>
-            <form action="./sides/index.html">
-                <button type="submit">Sides</button>
-            </form>
-        </li>
-        <li>
-            <form action="./sandwiches/index.html">
-                <button type="submit">Sandwiches</button>
-            </form>
-        </li>
-        <li>
-            <form action="./dessert/index.html">
-                <button type="submit">Dessert</button>
-            </form>
-        </li>
-        <li>
-            <form action="./special/index.html">
-                <button type="submit">Special</button>
-            </form>
-        </li>
-        <li>
-            <form action="..">
-                <button class="navigation-button">Back</button>
-            </form>
-        </li>
-    </menu>
-</main>
-</body>
-</html>
+---
+layout: menu
+title: Food Lists
+back: ..
+items:
+  - label: Regular
+    href: ./regular/index.html
+  - label: Salads
+    href: ./salads/index.html
+  - label: Sides
+    href: ./sides/index.html
+  - label: Sandwiches
+    href: ./sandwiches/index.html
+  - label: Dessert
+    href: ./dessert/index.html
+  - label: Special
+    href: ./special/index.html
+---

@@ -1,0 +1,9 @@
+---
+layout: default
+---
+<script src="https://d3js.org/d3.v{{ site.d3_version }}.min.js"></script>
+<main{% if page.outer %} id="outer"{% endif %}>
+    <nav>{% include back.html href=page.back %}</nav>
+    {{ content }}
+    <script src="{{ '/js/auto-table.js' | relative_url }}"></script>
+</main>

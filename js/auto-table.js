@@ -42,7 +42,18 @@ const mkTable = function (data) {
         .data(identity)
         .enter()
         .append("td")
-        .text(identity)
+        .each(function (cell, i) {
+            const td = d3.select(this)
+            if (header[i] === "AppId" && cell) {
+                td.append("a")
+                    .attr("href", `https://store.steampowered.com/app/${cell}`)
+                    .attr("target", "_blank")
+                    .attr("rel", "noopener")
+                    .text(cell)
+            } else {
+                td.text(cell)
+            }
+        })
 }
 
 d3.text("data.csv").then(mkTable)

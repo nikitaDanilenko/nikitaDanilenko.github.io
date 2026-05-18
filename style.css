@@ -44,6 +44,16 @@ td, th {
     padding: 8px;
 }
 
+td a {
+    color: rgb(100, 149, 237);
+    text-decoration: none;
+}
+
+td a:hover {
+    color: rgb(150, 190, 255);
+    text-decoration: underline;
+}
+
 table {
     border-spacing: 0;
 }

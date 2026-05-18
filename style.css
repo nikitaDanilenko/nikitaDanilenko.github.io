@@ -10,6 +10,8 @@
     --back: green;
     --back-hover: limegreen;
     --button-fg: white;
+    --tag-bg: rgb(200, 140, 50);
+    --tag-fg: rgb(30, 30, 30);
 }
 
 body {
@@ -91,6 +93,45 @@ td a:hover, .repo-link:hover {
     font-size: 0.9em;
     display: inline-block;
     margin-top: 0.5em;
+}
+
+.hero {
+    text-align: center;
+    margin: 2em 0 1em;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.tagline {
+    margin: 0.25em 0 0;
+    font-size: 1.2em;
+    color: var(--row-hover-fg);
+}
+
+.about {
+    max-width: 60ch;
+    margin: 1em auto 2em;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.tag-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.5em 0;
+}
+
+.tag {
+    display: inline-block;
+    background-color: var(--tag-bg);
+    color: var(--tag-fg);
+    border-radius: 4px;
+    padding: 0.2em 0.6em;
+    margin: 0.2em;
+    font-size: 0.85em;
 }
 
 table {

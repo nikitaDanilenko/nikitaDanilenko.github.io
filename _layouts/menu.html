@@ -2,13 +2,25 @@
 layout: default
 ---
 <main{% if page.main_id %} id="{{ page.main_id }}"{% endif %}>
+    {% if page.hero %}
+    <header class="hero">
+        <h1>{{ page.hero }}</h1>
+        {% if page.tagline %}<p class="tagline">{{ page.tagline }}</p>{% endif %}
+    </header>
+    {% endif %}
+    {% if content != blank %}<section class="about">{{ content }}</section>{% endif %}
     <ul class="nav{% if page.cards %} cards{% endif %}">
         {% for item in page.items %}
         <li>
             <a class="button" href="{{ item.href }}"{% if item.href contains '://' %} target="_blank" rel="noopener"{% endif %}>{{ item.label }}</a>
-            {% if item.description or item.github %}
+            {% if item.description or item.github or item.tags %}
             <div class="item-meta">
                 {% if item.description %}<p>{{ item.description }}</p>{% endif %}
+                {% if item.tags %}
+                <ul class="tag-list">
+                    {% for tag in item.tags %}<li class="tag">{{ tag }}</li>{% endfor %}
+                </ul>
+                {% endif %}
                 {% if item.github %}<a class="repo-link" href="{{ item.github }}" target="_blank" rel="noopener">GitHub</a>{% endif %}
             </div>
             {% endif %}

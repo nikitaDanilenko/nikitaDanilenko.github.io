@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<main id="overview">
+<main{% if page.main_id %} id="{{ page.main_id }}"{% endif %}>
     <ul class="nav">
         {% for item in page.items %}
         <li>

@@ -2,14 +2,14 @@
 layout: default
 ---
 <main id="overview">
-    <menu class="nav">
-{% for item in page.items %}
+    <ul class="nav">
+        {% for item in page.items %}
         <li>
             <a class="button" href="{{ item.href }}">{{ item.label }}</a>
         </li>
-{% endfor %}
+        {% endfor %}
         <li>
             {% include back.html href=page.back %}
         </li>
-    </menu>
+    </ul>
 </main>

@@ -1,48 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Overview</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<main id="overview">
-    <menu class="nav">
-        <li>
-            <form action="https://pubquiz.danilenko.io/backoffice" method="get">
-                <button type="submit">Pubquiz Back Office</button>
-            </form>
-        </li>
-        <li>
-            <form action="https://pubquiz.danilenko.io/quizzes">
-                <button type="submit">Pubquiz Public View</button>
-            </form>
-        </li>
-        <li>
-            <form action="https://foodie.danilenko.io">
-                <button type="submit">Foodie</button>
-            </form>
-        </li>
-        <li>
-            <form action="https://londo.danilenko.io/login">
-                <button type="submit">Londo</button>
-            </form>
-        </li>
-        <li>
-            <form action="./food">
-                <button type="submit">Food lists</button>
-            </form>
-        </li>
-        <li>
-            <form action="./games">
-                <button type="submit">Games giveaway</button>
-            </form>
-        </li>
-        <li>
-            <form action="https://github.com/nikitaDanilenko">
-                <button class="navigation-button">Back</button>
-            </form>
-        </li>
-    </menu>
-</main>
-</body>
-</html>
+---
+layout: menu
+title: Overview
+back: https://github.com/nikitaDanilenko
+back_text: GitHub Profile
+cards: true
+items:
+  - label: Pubquiz Public View
+    href: https://pubquiz.danilenko.io/quizzes
+    description:
+      Public facing view of the pub quiz application for tracking points.
+    github: https://github.com/nikitaDanilenko/pubquiz-frontend
+  - label: Pubquiz Back Office
+    href: https://pubquiz.danilenko.io/backoffice
+    description:
+      Back office for pubquiz application;
+      interface for managing points, teams, and settings of pub quizzes.
+    github: https://github.com/nikitaDanilenko/pubquiz-frontend
+  - label: Foodie
+    href: https://foodie.danilenko.io
+    description:
+      Calculator of nutritional information in food based on the Canada Nutrient File.
+      Designed for medium term analysis of dietary information.
+    github: https://github.com/nikitaDanilenko/foodie
+  - label: Londo
+    href: https://londo.danilenko.io/login
+    description:
+      Progress tracking application with a focus on presentation of progress based on different aspects.
+      Based on the Steam average completion rating, and abstracted to DSL for general projects.
+    github: https://github.com/nikitaDanilenko/londo
+  - label: Food lists
+    href: ./food
+    description: Collections of the current food roster from various books. Subject to change.
+  - label: Games giveaway
+    href: ./games
+    description: Games on Steam for which I give away keys
+---

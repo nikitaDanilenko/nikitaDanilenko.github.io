@@ -1,67 +1,59 @@
-const identity = function (a) {
-    return a
-}
-const mkTable = function (data) {
-    const parsedCSV = d3.csv.parseRows(data)
+const identity = a => a
+const arrow = { asc: " ↑", desc: " ↓" }
 
-    const table = d3.select("body").append("table")
+const mkTable = function (data) {
+    const parsedCSV = d3.csvParseRows(data)
     const header = parsedCSV[0]
     const values = parsedCSV.slice(1)
+    let sortState = { index: 0, dir: "desc" }
 
-    const headers = table
-        .append("thead")
+    const table = d3.select("body").append("table")
+
+    const rows = table
+        .append("tbody")
+        .selectAll("tr")
+        .data(values)
+        .enter()
+        .append("tr")
+        .sort((a, b) => d3.descending(a[0], b[0]))
+
+    const ths = table
+        .insert("thead", "tbody")
         .append("tr")
         .selectAll("th")
         .data(header)
         .enter()
         .append("th")
-        .text(identity)
-        .on("click", function (pos) {
-            const index = header.findIndex(function (x) {
-                return x === pos
-            })
-            if (d3.event.shiftKey) {
-                rows.sort(function (a, b) {
-                    return d3.ascending(b[index], a[index])
-                })
-            } else {
-                rows.sort(function (a, b) {
-                        return d3.descending(b[index], a[index]);
-                    }
-                )
-            }
+        .on("click", function (event, pos) {
+            const index = header.indexOf(pos)
+            const dir = event.shiftKey ? "asc" : "desc"
+            const cmp = dir === "asc" ? d3.ascending : d3.descending
+            rows.sort((a, b) => cmp(a[index], b[index]))
+            sortState = { index, dir }
+            renderHeaders()
         })
 
-    const rows =
-        table
-            .append("tbody")
-            .selectAll("tr")
-            .data(values)
-            .enter()
-            .append("tr")
-            .sort(function (a, b) {
-                return d3.descending(b[0], a[0])
-            })
-    rows
-        .selectAll("td")
+    const renderHeaders = () =>
+        ths.text((d, i) => d + (sortState.index === i ? arrow[sortState.dir] : ""))
+
+    renderHeaders()
+
+    rows.selectAll("td")
         .data(identity)
         .enter()
         .append("td")
-        .text(identity)
+        .each(function (cell, i) {
+            const td = d3.select(this)
+            if (header[i] === "AppId" && cell) {
+                td.append("a")
+                    .attr("href", `https://store.steampowered.com/app/${cell}`)
+                    .attr("target", "_blank")
+                    .attr("rel", "noopener")
+                    .text(cell)
+            } else {
+                td.text(cell)
+            }
+        })
 }
 
-d3.text("data.csv", mkTable)
-
-window.onscroll = function () {
-    stickyControlFunction()
-};
-const header = document.getElementById("navigationHeader");
-const sticky = header.offsetTop;
-
-function stickyControlFunction() {
-    if (window.scrollY > sticky) {
-        header.classList.add("sticky");
-    } else {
-        header.classList.remove("sticky");
-    }
-}
+d3.text("data.csv").then(mkTable)

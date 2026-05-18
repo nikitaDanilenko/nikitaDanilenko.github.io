@@ -1,0 +1,5 @@
+title: Overview
+d3_version: 7
+exclude:
+  - Readme.md
+  - .editorconfig

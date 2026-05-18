@@ -1,25 +1,47 @@
+:root {
+    --bg: rgb(40, 40, 40);
+    --card-bg: rgb(55, 55, 55);
+    --fg: rgb(200, 200, 200);
+    --accent: rgb(66, 100, 160);
+    --accent-hover: rgb(100, 149, 237);
+    --link-hover: rgb(150, 190, 255);
+    --row-hover-bg: rgb(100, 100, 100);
+    --row-hover-fg: rgb(180, 180, 180);
+    --back: green;
+    --back-hover: limegreen;
+    --button-fg: white;
+}
+
 body {
-    color: rgb(200, 200, 200);
-    background: rgb(40, 40, 40);
-    font-family: arial, sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+    font-family: system-ui, arial, sans-serif;
 }
 
 .nav {
     width: 100%;
     text-align: center;
-}
-
-.nav {
     list-style-type: none;
+    padding-left: 0;
+    margin: 0;
 }
 
-.sticky {
-    position: fixed;
+.nav.cards > li:not(:last-child) {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1em;
+    margin: 1em auto;
+    max-width: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-button {
-    background-color: rgb(66, 100, 160);
-    color: white;
+.nav.cards > li:not(:last-child) .button {
+    width: 80%;
+}
+
+button, .button {
+    background-color: var(--accent);
+    color: var(--button-fg);
     border-radius: 5px;
     border: none;
     text-decoration: none;
@@ -28,14 +50,16 @@ button {
     display: inline-block;
     width: 50%;
     white-space: normal;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
     margin-bottom: 5px;
     padding-top: 2%;
     padding-bottom: 2%;
+    box-sizing: border-box;
+    cursor: pointer;
 }
 
-button:hover {
-    background-color: rgb(100, 149, 237);
+button:hover, .button:hover {
+    background-color: var(--accent-hover);
 }
 
 td, th {
@@ -43,13 +67,39 @@ td, th {
     padding: 8px;
 }
 
+td a, .repo-link {
+    color: var(--accent-hover);
+    text-decoration: none;
+}
+
+td a:hover, .repo-link:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+}
+
+.item-meta {
+    max-width: 60ch;
+    margin: 0 auto 1em;
+    text-align: center;
+}
+
+.item-meta p {
+    margin: 0.5em 0;
+}
+
+.repo-link {
+    font-size: 0.9em;
+    display: inline-block;
+    margin-top: 0.5em;
+}
+
 table {
     border-spacing: 0;
 }
 
 tbody tr:hover {
-    background-color: rgb(100, 100, 100);
-    color: rgb(180, 180, 180);
+    background-color: var(--row-hover-bg);
+    color: var(--row-hover-fg);
 }
 
 table tbody {
@@ -80,22 +130,21 @@ table, #outer {
 
 #inner {
     display: inline-block;
-    text-align: left;
+    text-align: center;
+    max-width: 60ch;
 }
 
 #condition {
-    text-align: center;
     font-style: italic;
 }
 
 .navigation-button {
     padding: 1%;
-    background-color: green;
-    display: inline-block;
+    background-color: var(--back);
 }
 
 .navigation-button:hover {
-    background-color: limegreen;
+    background-color: var(--back-hover);
 }
 
 nav {

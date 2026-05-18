@@ -2,10 +2,16 @@
 layout: default
 ---
 <main{% if page.main_id %} id="{{ page.main_id }}"{% endif %}>
-    <ul class="nav">
+    <ul class="nav{% if page.cards %} cards{% endif %}">
         {% for item in page.items %}
         <li>
             <a class="button" href="{{ item.href }}">{{ item.label }}</a>
+            {% if item.description or item.github %}
+            <div class="item-meta">
+                {% if item.description %}<p>{{ item.description }}</p>{% endif %}
+                {% if item.github %}<a class="repo-link" href="{{ item.github }}">GitHub</a>{% endif %}
+            </div>
+            {% endif %}
         </li>
         {% endfor %}
         <li>

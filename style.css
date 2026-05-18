@@ -1,5 +1,6 @@
 :root {
     --bg: rgb(40, 40, 40);
+    --card-bg: rgb(55, 55, 55);
     --fg: rgb(200, 200, 200);
     --accent: rgb(66, 100, 160);
     --accent-hover: rgb(100, 149, 237);
@@ -23,6 +24,15 @@ body {
     list-style-type: none;
     padding-left: 0;
     margin: 0;
+}
+
+.nav.cards > li:not(:last-child) {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1em;
+    margin: 1em auto;
+    max-width: 70%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 button, .button {
@@ -53,14 +63,28 @@ td, th {
     padding: 8px;
 }
 
-td a {
+td a, .repo-link {
     color: var(--accent-hover);
     text-decoration: none;
 }
 
-td a:hover {
+td a:hover, .repo-link:hover {
     color: var(--link-hover);
     text-decoration: underline;
+}
+
+.item-meta {
+    max-width: 60ch;
+    margin: 0 auto 1em;
+    text-align: center;
+}
+
+.item-meta p {
+    margin: 0.5em 0;
+}
+
+.repo-link {
+    font-size: 0.9em;
 }
 
 table {

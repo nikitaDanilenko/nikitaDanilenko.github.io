@@ -35,6 +35,10 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
+.nav.cards > li:not(:last-child) .button {
+    width: 80%;
+}
+
 button, .button {
     background-color: var(--accent);
     color: var(--button-fg);

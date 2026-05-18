@@ -31,7 +31,7 @@ body {
     border-radius: 8px;
     padding: 1em;
     margin: 1em auto;
-    max-width: 70%;
+    max-width: 50%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
@@ -85,6 +85,8 @@ td a:hover, .repo-link:hover {
 
 .repo-link {
     font-size: 0.9em;
+    display: inline-block;
+    margin-top: 0.5em;
 }
 
 table {

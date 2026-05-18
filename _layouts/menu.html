@@ -5,17 +5,17 @@ layout: default
     <ul class="nav{% if page.cards %} cards{% endif %}">
         {% for item in page.items %}
         <li>
-            <a class="button" href="{{ item.href }}">{{ item.label }}</a>
+            <a class="button" href="{{ item.href }}"{% if item.href contains '://' %} target="_blank" rel="noopener"{% endif %}>{{ item.label }}</a>
             {% if item.description or item.github %}
             <div class="item-meta">
                 {% if item.description %}<p>{{ item.description }}</p>{% endif %}
-                {% if item.github %}<a class="repo-link" href="{{ item.github }}">GitHub</a>{% endif %}
+                {% if item.github %}<a class="repo-link" href="{{ item.github }}" target="_blank" rel="noopener">GitHub</a>{% endif %}
             </div>
             {% endif %}
         </li>
         {% endfor %}
         <li>
-            {% include back.html href=page.back %}
+            {% include back.html %}
         </li>
     </ul>
 </main>

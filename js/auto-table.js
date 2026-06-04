@@ -5,7 +5,7 @@ const mkTable = function (data) {
     const parsedCSV = d3.csvParseRows(data)
     const header = parsedCSV[0]
     const values = parsedCSV.slice(1)
-    let sortState = { index: 0, dir: "desc" }
+    let sortState = { index: 0, dir: "asc" }
 
     const table = d3.select("body").append("table")
 
@@ -15,7 +15,7 @@ const mkTable = function (data) {
         .data(values)
         .enter()
         .append("tr")
-        .sort((a, b) => d3.descending(a[0], b[0]))
+        .sort((a, b) => d3.ascending(a[0], b[0]))
 
     const ths = table
         .insert("thead", "tbody")
@@ -26,7 +26,7 @@ const mkTable = function (data) {
         .append("th")
         .on("click", function (event, pos) {
             const index = header.indexOf(pos)
-            const dir = event.shiftKey ? "asc" : "desc"
+            const dir = event.shiftKey ? "desc" : "asc"
             const cmp = dir === "asc" ? d3.ascending : d3.descending
             rows.sort((a, b) => cmp(a[index], b[index]))
             sortState = { index, dir }
